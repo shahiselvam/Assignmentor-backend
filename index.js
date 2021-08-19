@@ -22,7 +22,14 @@ app.use((req, res, next) => {
 		res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
     next();
   });
-app.use(cors());
+app.use(cors({
+    origin: 
+    
+    'https://elegant-bassi-cb4e38.netlify.app'
+    
+  ,
+  methods:'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+}));
 app.use(express.json());
 app.use("/students" ,student );
 app.use("/mentors" , mentor);
