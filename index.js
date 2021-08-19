@@ -15,11 +15,13 @@ try
 {
 await mongo.connect();
 app.use((req, res, next) => {
-        res.setHeader("Access-Control-Allow-Origin", "https://elegant-bassi-cb4e38.netlify.app");
-		res.setHeader("Access-Control-Allow-Credentials", "true");
-		
-		res.setHeader("Access-Control-Allow-Headers", "content-type");
-		res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
+          res.header('Content-Type', 'application/json;charset=UTF-8')
+    res.header('Access-Control-Allow-Origin', '*' )
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+    res.header('Access-Control-Allow-Credentials', true)
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
     next();
   });
 app.use(cors({
