@@ -15,7 +15,7 @@ try
 {
 await mongo.connect();
 app.use((req, res, next) => {
-        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Origin", "https://elegant-bassi-cb4e38.netlify.app");
 		res.setHeader("Access-Control-Allow-Credentials", "true");
 		
 		res.setHeader("Access-Control-Allow-Headers", "content-type");
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     next();
   });
 app.use(cors({
-    origin:'https://elegant-bassi-cb4e38.netlify.app' 
+    origin: 'https://elegant-bassi-cb4e38.netlify.app'
 }));
 app.use(express.json());
 app.use("/students" ,student );
