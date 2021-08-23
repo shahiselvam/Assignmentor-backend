@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
   
 
 
-  router.get("/:id" , async (req , res) => {
+  router.get("/:id" , async (req , res , next) => {
         res.setHeader("Access-Control-Allow-Origin", "*");
 		res.setHeader("Access-Control-Allow-Credentials", "true");
 		
