@@ -15,22 +15,15 @@ try
 {
 await mongo.connect();
 app.use((req, res, next) => {
-          res.header('Content-Type', 'application/json;charset=UTF-8')
-    res.header('Access-Control-Allow-Origin', '*' )
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
-    res.header('Access-Control-Allow-Credentials', true)
-    res.header(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept'
+        res.setHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Credentials", "true");
+		
+		res.setHeader("Access-Control-Allow-Headers", "content-type");
+		res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
     next();
   });
 app.use(cors({
-    origin: 
-    
-    'https://elegant-bassi-cb4e38.netlify.app'
-    
-  ,
-  methods:'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+    origin:'https://elegant-bassi-cb4e38.netlify.app' 
 }));
 app.use(express.json());
 app.use("/students" ,student );
